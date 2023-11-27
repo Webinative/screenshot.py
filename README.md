@@ -1,7 +1,3 @@
-# screenshot.py
-Capture screenshots of web pages in multiple form factors.
-
-
 # Webpage Screenshot Capture Script
 
 This script captures full-page screenshots of a webpage in different form factors using Playwright.
@@ -12,7 +8,6 @@ Before running the script, make sure you have the following installed:
 
 - Python (>=3.7)
 - Playwright: Install using `pip install playwright`
-- create venv, activate it after give the command playwright install 
 
 ## Usage
 

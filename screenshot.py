@@ -1,7 +1,12 @@
+import os
 import argparse
 from playwright.sync_api import sync_playwright
 
-from config import form_factors
+from utils import form_factors, save_folder
+
+# Create the save folder if it doesn't exist
+if not os.path.exists(save_folder):
+    os.makedirs(save_folder)
 
 def capture_full_page_screenshot(url, browser_name, output_file, width, height):
     """
