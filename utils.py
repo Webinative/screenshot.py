@@ -1,5 +1,4 @@
-default_height = None
-save_folder = 'screenshots'
+save_folder = "screenshots"
 
 form_factors = [
     {"name": "iPhone 8", "width": 375, "height": 667},
