@@ -39,7 +39,7 @@ playwright install
 ## Usage
 
 ```bash
-python screenshot.py --url https://example.com --browser chrome
+python screenshot.py --url https://example.com --browser chrome --color_scheme dark
 ```
 
 The above command captures screenshots of the given URL and saves them to the "screenshots" folder.
@@ -50,7 +50,7 @@ Argument | Description
 --- | ---
 `--url` | The URL of the webpage to capture screenshots.
 `--browser` | The browser (engine) to use for capturing screenshots (default: chrome).
-
+`--color_scheme` | The browser Color scheme enabled as dark mode (default: light)
 Support for `chromium`, `firefox`, `safari` and `edge` coming soon.
 
 ## Customisation

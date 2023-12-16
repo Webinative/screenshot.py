@@ -9,7 +9,9 @@ if not os.path.exists(save_folder):
     os.makedirs(save_folder)
 
 
-def capture_full_page_screenshot(url, browser_name, output_file, width, height):
+def capture_full_page_screenshot(
+    url, browser_name, color_scheme, output_file, width, height
+):
     """
     Capture a full-page screenshot of a webpage.
 
@@ -30,7 +32,8 @@ def capture_full_page_screenshot(url, browser_name, output_file, width, height):
 
         context = browser.new_context(viewport={"width": width, "height": height})
         page = context.new_page()
-
+        if color_scheme == "dark":
+            page.emulate_media(color_scheme="dark")
         # Navigate to the URL
         page.goto(url)
 
@@ -53,11 +56,18 @@ if __name__ == "__main__":
         default="chrome",
         help="The browser for capturing screenshots. Defaults to chrome.",
     )
+    parser.add_argument(
+        "--color_scheme",
+        type=str,
+        default="light",
+        help="The theme enables the dark theme",
+    )
 
     # Parse the command-line arguments
     args = parser.parse_args()
     url_to_capture = args.url
     browser_name = args.browser
+    color_scheme = args.color_scheme
 
     for form_factor in form_factors:
         # Replace 'screenshot.png' with the desired output file name
@@ -67,6 +77,7 @@ if __name__ == "__main__":
         capture_full_page_screenshot(
             url_to_capture,
             browser_name,
+            color_scheme,
             output_file_name,
             form_factor["width"],
             form_factor["height"],
